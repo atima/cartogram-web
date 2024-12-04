@@ -63,8 +63,8 @@ jobs:
 
     - name: Display Release URLs in GitHub Actions Job Summary
       run: |
-        echo "## `cartogram-web`" >> $GITHUB_STEP_SUMMARY
-        echo "- GitHub Release URL: ${{ steps.release-urls.outputs.gh_release_url }}" >> $GITHUB_STEP_SUMMARY
-        echo "- DockerHub Release URL: ${{ steps.release-urls.outputs.dh_release_url }}" >> $GITHUB_STEP_SUMMARY
-        echo "## `cartogram-cpp`" >> $GITHUB_STEP_SUMMARY
-        echo "- Release URL: ${{ steps.release-urls.outputs.cpp_release_url }}" >> $GITHUB_STEP_SUMMARY
+        echo "- `cartogram-web`" >> $GITHUB_STEP_SUMMARY
+        echo "  - GitHub Release URL: ${{ steps.release-urls.outputs.gh_release_url }}" >> $GITHUB_STEP_SUMMARY
+        echo "  - DockerHub Release URL: ${{ steps.release-urls.outputs.dh_release_url }}" >> $GITHUB_STEP_SUMMARY
+        echo "- `cartogram-cpp`" >> $GITHUB_STEP_SUMMARY
+        echo "  - Release URL: ${{ steps.release-urls.outputs.cpp_release_url }}" >> $GITHUB_STEP_SUMMARY

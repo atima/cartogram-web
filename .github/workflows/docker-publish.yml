@@ -49,7 +49,7 @@ jobs:
       run: |
         echo "gh_release_url=https://github.com/${{ github.repository }}/releases/tag/${{ steps.vars.outputs.short_sha }}" >> $GITHUB_OUTPUT
         echo "dh_release_url=https://hub.docker.com/r/gocartio/cartogram-web/tags?name=${{ steps.vars.outputs.short_sha }}" >> $GITHUB_OUTPUT
-        echo "cpp_release_url="https://github.com/mgastner/cartogram-cpp/releases/tag/${{ steps.pull-exec.outputs.CPP_TAG }}" >> $GITHUB_OUTPUT
+        echo "cpp_release_url=https://github.com/mgastner/cartogram-cpp/releases/tag/${{ steps.pull-exec.outputs.CPP_TAG }}" >> $GITHUB_OUTPUT
 
     - name: Release
       uses: softprops/action-gh-release@v2

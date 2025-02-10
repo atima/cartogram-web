@@ -51,13 +51,14 @@ function onGeoJsonChanged(
   handler: string,
   geojsonData: FeatureCollection,
   regionCol: string,
-  csvFile = ''
+  csvFile = '',
+  displayTable : boolean = true
 ) {
   state.handler = handler
   state.geojsonData = geojsonData
   state.geojsonRegionCol = regionCol
   state.csvFile = csvFile
-  dataTableEl.value.initDataTableWGeojson(geojsonData, regionCol)
+  dataTableEl.value.initDataTableWGeojson(geojsonData, regionCol, displayTable)
 
   // Immediately populate data if a CSV file is supplied
   if (csvFile) {
@@ -80,6 +81,12 @@ async function onCsvBtnClick() {
 }
 
 function onCsvUpdate(csvData: KeyValueArray) {
+  let isCSVValid = dataTableEl.value.validateCSV(csvData);
+
+  // Do not update the data table if the CSV is invalid
+  if (!isCSVValid) {
+    return
+  }
   const updatedProps = dataTableEl.value.updateDataTable(csvData)
   state.colorScheme = updatedProps.customColor ? 'custom' : state.colorScheme
   state.useEqualArea = updatedProps.useEqualArea

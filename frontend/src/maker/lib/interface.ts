@@ -10,6 +10,8 @@ export type DataTable = {
     show: boolean
     editable: boolean
     editableHead?: boolean
+    errorMessage?: string
+    headerError?: boolean
   }>
   items: Array<{ [key: string]: any }>
 }

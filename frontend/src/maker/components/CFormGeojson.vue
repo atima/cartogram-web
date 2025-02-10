@@ -77,8 +77,8 @@ async function uploadGeoJson(event: Event) {
   state.geojsonRegionCol = ''
   state.handler = 'custom'
   state.isLoading = false
-
-  emit('changed', state.handler, {}, '')
+  const firstUniqueProprety = state.geojsonUniqueProperties[0]
+  emit('changed', state.handler, geojsonData, firstUniqueProprety, '', false)
 }
 </script>
 
